@@ -23,7 +23,7 @@ return {
       '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
       '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
       '                                                     ',
-      '                     Custom crafted to Eduardo Ellery',
+      '                          Eduardo Ellery custom setup',
     }
 
     -- Set menu
