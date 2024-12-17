@@ -508,12 +508,12 @@ return {
             -- `friendly-snippets` contains a variety of premade snippets.
             --    See the README about individual language/framework/plugin snippets:
             --    https://github.com/rafamadriz/friendly-snippets
-            -- {
-            --   'rafamadriz/friendly-snippets',
-            --   config = function()
-            --     require('luasnip.loaders.from_vscode').lazy_load()
-            --   end,
-            -- },
+            {
+              'rafamadriz/friendly-snippets',
+              config = function()
+                require('luasnip.loaders.from_vscode').lazy_load()
+              end,
+            },
           },
         },
         'saadparwaiz1/cmp_luasnip',
@@ -537,6 +537,10 @@ return {
             end,
           },
           completion = { completeopt = 'menu,menuone,noinsert' },
+          window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
+          },
   
           -- For an understanding of why these mappings were
           -- chosen, you will need to read `:help ins-completion`
@@ -556,6 +560,7 @@ return {
             --  This will auto-import if your LSP supports it.
             --  This will expand snippets if the LSP sent a snippet.
             ['<C-y>'] = cmp.mapping.confirm { select = true },
+            ['<C-e>'] = cmp.mapping.abort(),
   
             -- If you prefer more traditional completion keymaps,
             -- you can uncomment the following lines
