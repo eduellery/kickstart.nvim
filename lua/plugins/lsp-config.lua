@@ -6,9 +6,54 @@ return {
     end,
   },
   {
+    'nvim-java/nvim-java',
+    config = false,
+    ft = { "java" },
+    dependencies = {
+      {
+        "neovim/nvim-lspconfig",
+        opts = {
+          servers = {
+            jdtls = {
+              settings = {
+                java = {
+                  configuration = {
+                    runtimes = {
+                      {
+                        name = "Current Java",
+                        path = "~/.sdkman/candidates/java/current",
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          setup = {
+            jdtls = function()
+              require("java").setup({
+                root_markers = {
+                  "settings.gradle",
+                  "settings.gradle.kts",
+                  "pom.xml",
+                  "build.gradle",
+                  "mvnw",
+                  "gradlew",
+                  "build.gradle",
+                  "build.gradle.kts",
+                },
+              })
+            end,
+          },
+        },
+      },
+    },
+  },
+  {
     'williamboman/mason-lspconfig.nvim',
     config = function()
       require('mason-lspconfig').setup {
+        automatic_installation = true,
         ensure_installed = {
           'lua_ls',
           'rust_analyzer',
